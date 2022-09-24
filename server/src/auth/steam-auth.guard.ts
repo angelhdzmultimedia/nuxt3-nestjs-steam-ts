@@ -7,7 +7,7 @@ export class SteamAuthGuard extends AuthGuard('steam') {
     context: ExecutionContext,
   ): Promise<boolean> {
     const result = (await super.canActivate(context)) as boolean 
-    console.log(`[SteamAuthGuard CanActivate Result]: $`)
+    console.log(`[SteamAuthGuard CanActivate Result]: ${result}`)
     const request = context.switchToHttp().getRequest()
     await super.logIn(request)
     return result
