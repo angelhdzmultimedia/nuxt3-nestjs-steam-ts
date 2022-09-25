@@ -4,11 +4,10 @@ import { AuthController } from './auth.controller'
 import { PassportModule } from '@nestjs/passport'
 import { SteamStrategy } from './steam.strategy'
 import { SessionSerializer } from './session.serializer'
-import { SteamAuthGuard } from './steam-auth.guard'
 
 @Module({
-  imports: [PassportModule.register({session: true, defaultStrategy: 'steam'})],
+  imports: [PassportModule.register({session: true})],
   controllers: [AuthController],
-  providers: [AuthService, SteamStrategy, SteamAuthGuard, SessionSerializer]
+  providers: [AuthService, SteamStrategy, SessionSerializer]
 })
 export class AuthModule {}

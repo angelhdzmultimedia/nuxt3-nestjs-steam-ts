@@ -9,7 +9,7 @@ export const useAuthStore = defineStore('auth', () => {
   })
 
   function login(): void {
-    window.location.replace('http://localhost:5000/api/auth/steam')
+    window.location.replace('http://localhost:5000/api/auth/steam/login')
   }
 
   async function loadProfile(): Promise<void> {
