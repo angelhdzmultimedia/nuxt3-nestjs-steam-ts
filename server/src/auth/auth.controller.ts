@@ -10,20 +10,21 @@ export class AuthController {
   @Get('steam')
   @UseGuards(SteamAuthGuard)
   public steam(@Request() req) {
-   console.log(`[/auth/steam USER]: ${JSON.stringify(req?.user)}`)
+   console.log(`[/auth/steam USER]: ${JSON.stringify(req.user)}`)
+   return req.user
   }
 
   @Get('steam/return')
   @Redirect('http://localhost:3000/profile')
   public steamReturn(@Request() req) {
-    console.log(`[/auth/steam/return USER]: ${JSON.stringify(req?.user)}`)
+    console.log(`[/auth/steam/return USER]: ${JSON.stringify(req.user)}`)
   }
 
 
   @UseGuards(AuthenticatedGuard)
   @Get('profile')
   public profile(@Request() req) {
-    console.log(`[/auth/profile USER]: ${JSON.stringify(req?.user)}`)
-    return req?.user
+    console.log(`[/auth/profile USER]: ${JSON.stringify(req.user)}`)
+    return req.user
   }
 }
